@@ -9,7 +9,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class CalculatorController {
 
-    CalculatorService calculatorService = new CalculatorService();
+    private final CalculatorService calculatorService;
+
+    public CalculatorController(CalculatorService calculatorService) {
+        this.calculatorService = calculatorService;
+    }
 
     @GetMapping("/calculator")
     public String greeting() {
